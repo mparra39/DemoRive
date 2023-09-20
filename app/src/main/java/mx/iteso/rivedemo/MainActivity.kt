@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         //rive
         Rive.init(this)
 
+        //binding.loginCharacter.play()
+
         /*binding.email.setOnFocusChangeListener { view, b ->
             if (b){
                 binding.loginCharacter.controller.setBooleanState(stateMachineName, "isChecking", true)

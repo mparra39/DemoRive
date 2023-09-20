@@ -19,6 +19,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginHorizontal="0dp"
         android:layout_marginVertical="0dp"
+        app:riveAlignment="CENTER"
+        app:riveFit="FILL"
         app:riveResource="@raw/app_fil_traductor3"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
