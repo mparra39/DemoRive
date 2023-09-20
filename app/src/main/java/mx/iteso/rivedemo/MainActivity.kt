@@ -5,6 +5,10 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
+import app.rive.runtime.kotlin.controllers.RiveFileController
+import app.rive.runtime.kotlin.core.LinearAnimationInstance
+import app.rive.runtime.kotlin.core.PlayableInstance
 import app.rive.runtime.kotlin.core.Rive
 import mx.iteso.rivedemo.databinding.ActivityMainBinding
 
@@ -12,6 +16,42 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
     private val stateMachineName = "Login Machine"
+
+    val listener = object : RiveFileController.Listener {
+        override fun notifyLoop(animation: PlayableInstance) {
+            var text: String? = null
+            if (animation is LinearAnimationInstance) {
+                text = animation.name
+            }
+        }
+
+        override fun notifyPause(animation: PlayableInstance) {
+            var text: String? = null
+            if (animation is LinearAnimationInstance) {
+                text = animation.name
+            }
+        }
+
+        override fun notifyPlay(animation: PlayableInstance) {
+            var text: String? = null
+            if (animation is LinearAnimationInstance) {
+                text = animation.name
+            }
+        }
+
+        override fun notifyStateChanged(stateMachineName: String, stateName: String) {
+            // Do something
+            Log.i("RiveAnimation", "$stateMachineName $stateName")
+        }
+
+        override fun notifyStop(animation: PlayableInstance) {
+            var text: String? = null
+            if (animation is LinearAnimationInstance) {
+                text = animation.name
+            }
+        }
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +61,8 @@ class MainActivity : AppCompatActivity() {
 
         //rive
         Rive.init(this)
+        binding.loginCharacter.registerListener(listener)
+    //Log.i("RiveAnimation", binding.loginCharacter.)
 
         //binding.loginCharacter.play()
 
